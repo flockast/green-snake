@@ -1,3 +1,17 @@
+import {
+  initControls
+} from './common/controls.js'
+
+import {
+  initCanvas
+} from './common/canvas.js'
+
+import {
+  initRaf
+} from './common/raf.js'
+
 export const initSnakeGame = (element) => {
-  element.style.background = 'green'
+  initCanvas(element)
+  initControls()
+  initRaf()
 }
