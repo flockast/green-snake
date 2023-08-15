@@ -1,8 +1,8 @@
 const GLOBAL = {
   ctx: '',
   element: '',
-  width: '',
-  height: ''
+  width: 0,
+  height: 0
 }
 
 export const setCtx = (ctx) => {

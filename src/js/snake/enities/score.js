@@ -3,9 +3,9 @@ import { getScoreCount } from '../state/score.js'
 
 export const drawScore = () => {
   const ctx = getCtx()
-  const text = `SCORE ${getScoreCount()}`
+  const text = `SCORE: ${getScoreCount()}`
 
   ctx.fillStyle = 'white'
-  ctx.font = '32px Helvetica'
-  ctx.fillText(text, 10, 30)
+  ctx.font = '21px Helvetica'
+  ctx.fillText(text, 5, 20)
 }

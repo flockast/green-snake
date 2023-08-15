@@ -1,33 +1,33 @@
 import { DIRECTIONS } from '../enums.js'
-import { setDirection, getDirection } from '../state/game.js'
+import { getDirection, setBufferDirection } from '../state/game.js'
 import { restart } from './restart.js'
 
 const changeToUp = () => {
   if (getDirection() === DIRECTIONS.DOWN) {
     return
   }
-  setDirection(DIRECTIONS.UP)
+  setBufferDirection(DIRECTIONS.UP)
 }
 
 const changeToRight = () => {
   if (getDirection() === DIRECTIONS.LEFT) {
     return
   }
-  setDirection(DIRECTIONS.RIGHT)
+  setBufferDirection(DIRECTIONS.RIGHT)
 }
 
 const changeToDown = () => {
   if (getDirection() === DIRECTIONS.UP) {
     return
   }
-  setDirection(DIRECTIONS.DOWN)
+  setBufferDirection(DIRECTIONS.DOWN)
 }
 
 const changeToLeft = () => {
   if (getDirection() === DIRECTIONS.RIGHT) {
     return
   }
-  setDirection(DIRECTIONS.LEFT)
+  setBufferDirection(DIRECTIONS.LEFT)
 }
 
 export const initControls = () => {

@@ -8,7 +8,15 @@ import {
 } from '../state/food.js'
 import { addSnakeTail, getSnakePosition, getSnakeTail } from '../state/snake.js'
 import { randomBetween } from '../utils/random.js'
-import { COUNT_ROWS, COUNT_COLS, COLOR_FOOD, COLOR_FOOD_SECOND, CHANGE_COLOR_FPS } from '../config.js'
+import {
+  COUNT_ROWS,
+  COUNT_COLS,
+  COLOR_FOOD,
+  COLOR_FOOD_SECOND,
+  CHANGE_COLOR_FPS,
+  COUNT_ADDING_TAIL,
+  COUNT_ADDING_SCORE
+} from '../config.js'
 import { addScoreCount } from '../state/score.js'
 import { drawCell } from './cell.js'
 
@@ -56,8 +64,8 @@ export const updateFood = () => {
 
   if (foodX && foodY) {
     if (foodX === snakeX && foodY === snakeY) {
-      addSnakeTail(3)
-      addScoreCount(3)
+      addSnakeTail(COUNT_ADDING_TAIL)
+      addScoreCount(COUNT_ADDING_SCORE)
       generateAndSetNewFoodCoords()
     } else {
       diodeFood()

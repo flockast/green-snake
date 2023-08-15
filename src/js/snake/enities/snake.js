@@ -1,5 +1,5 @@
 import { getSnakePosition, getSnakeTail, setSnakePosition, setSnakeTailToStart, sliceLastTail, snakeHasTail } from '../state/snake.js'
-import { getDirection, setGameOver } from '../state/game.js'
+import {getBufferDirection, getDirection, setBufferDirection, setDirection, setGameOver} from '../state/game.js'
 import { DIRECTIONS } from '../enums.js'
 import { COLOR_SNAKE_HEAD, COLOR_SNAKE_TAIL, COUNT_COLS, COUNT_ROWS } from '../config.js'
 import { drawCell } from './cell.js'
@@ -12,10 +12,11 @@ const stepTail = () => {
 
 const stepHead = () => {
   const [x, y] = getSnakePosition()
+  const direction = getBufferDirection() || getDirection()
   let newX
   let newY
 
-  switch (getDirection()) {
+  switch (direction) {
     case DIRECTIONS.UP:
       newY = y - 1
       if (newY < 0) {
@@ -49,6 +50,9 @@ const stepHead = () => {
       }
       break
   }
+
+  setDirection(direction)
+  setBufferDirection('')
 }
 
 const stepSnake = () => {
